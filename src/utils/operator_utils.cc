@@ -1,5 +1,5 @@
-#include "utils/operator_utils.h"
-#include "core/runtime.h"
+#include "../../include/utils/operator_utils.h"
+#include "../../include/core/runtime.h"
 
 namespace infini {
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "core/common.h"
+#include "common.h"
 #include <cstdint>
 
 namespace infini {

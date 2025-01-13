@@ -1,5 +1,5 @@
-#include "operators/transpose.h"
-#include "core/kernel.h"
+#include "../../../include/operators/transpose.h"
+#include "../../../include/core/kernel.h"
 
 namespace infini {
 

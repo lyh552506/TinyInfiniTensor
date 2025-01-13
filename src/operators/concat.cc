@@ -1,5 +1,5 @@
-#include "operators/concat.h"
-#include "utils/operator_utils.h"
+#include "../../include/operators/concat.h"
+#include "../../include/utils/operator_utils.h"
 
 namespace infini {
 ConcatObj::ConcatObj(GraphObj *graph, TensorVec inputs, Tensor output, int _dim)

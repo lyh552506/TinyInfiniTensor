@@ -2,8 +2,8 @@
 #ifndef OPERATOR_UTIL_H
 #define OPERATOR_UTIL_H
 
-#include "core/operator.h"
-#include "core/tensor.h"
+#include "../core/operator.h"
+#include "../core/tensor.h"
 
 #include <numeric>
 

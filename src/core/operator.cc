@@ -1,6 +1,5 @@
-#include "core/operator.h"
-#include "core/graph.h"
-
+#include "../../include/core/operator.h"
+#include "../../include/core/graph.h"
 namespace infini
 {
 

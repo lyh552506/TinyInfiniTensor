@@ -1,4 +1,5 @@
-#include "operators/unary.h"
+#include "../../include/operators/unary.h"
+#include <limits>
 
 namespace infini
 {
@@ -39,7 +40,27 @@ namespace infini
         // TODO：返回经过 clip 操作后的 shape
         // REF: https://onnx.ai/onnx/operators/onnx__Clip.html#clip-13
         // =================================== 作业 ===================================
-        return std::nullopt;
+		const auto A=inputs[0];
+		auto input_dim=A->getDims();
+		auto output_dim = input_dim;
+		auto clip_min=std::numeric_limits<int>::lowest();
+		auto clip_max=std::numeric_limits<int>::max();
+		if(this->getMax().has_value())
+		  clip_max=this->getMax().value();
+		if(this->getMin().has_value())
+		  clip_min=this->getMin().value();
+		if(clip_min>clip_max){
+			for(auto &ind:output_dim)
+				ind=clip_max;
+			return std::optional<vector<Shape>>({output_dim});
+		}
+		for(auto &ind:output_dim){
+			if(ind<clip_min)
+			  {ind=clip_min;continue;}
+			if(ind>clip_max)
+			  {ind=clip_max;continue;}
+		}
+        return std::optional<vector<Shape>>({output_dim});
     }
 
     std::string ClipObj::toString() const
@@ -75,6 +96,40 @@ namespace infini
         // TODO：返回经过 cast 操作后的 shape
         // REF: https://onnx.ai/onnx/operators/onnx__Cast.html#cast-21
         // =================================== 作业 ===================================
+		const auto A=inputs[0];
+		auto input_dims=A->getDims();
+		auto output_dims=input_dims;
+		switch(castType){
+			case infini::CastType::Float2Float16:
+
+			break;
+    case infini::CastType::Float2Int64:
+	
+	break;
+    case infini::CastType::Float2Int32:break;
+    case infini::CastType::Float2Int16:break;
+    case infini::CastType::Float2Int8:break;
+    case infini::CastType::Float2BFloat16:break;
+    case infini::CastType::Int322Float:break;
+    case infini::CastType::Int322Int8:break;
+    case infini::CastType::Int322Int16:break;
+    case infini::CastType::Int322Int64:break;
+    case infini::CastType::Int162Float:break;
+    case infini::CastType::Int162Int32:break;
+    case infini::CastType::Int82Float:break;
+    case infini::CastType::Int82Int16:break;
+    case infini::CastType::Int82Int32:break;
+    case infini::CastType::Uint82Float:break;
+    case infini::CastType::Uint82Int32:break;
+    case infini::CastType::Uint82Int64:break;
+    case infini::CastType::Int642Int32:break;
+    case infini::CastType::Int642Uint32:break;
+    case infini::CastType::Int642Float:break;
+    case infini::CastType::Uint322Int64:break;
+    case infini::CastType::Float162Float:break;
+    case infini::CastType::BFloat162Float:break;
+    case infini::CastType::Float2Float:break;
+		}
         return std::nullopt;
     }
 

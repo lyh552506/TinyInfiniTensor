@@ -1,4 +1,4 @@
-﻿#include "core/op_type.h"
+﻿#include "../../include/core/op_type.h"
 
 namespace infini
 {

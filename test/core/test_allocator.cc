@@ -1,9 +1,9 @@
-#include "core/graph.h"
-#include "core/kernel.h"
-#include "core/runtime.h"
-#include "operators/unary.h"
+#include "../../include/core/graph.h"
+#include "../../include/core/kernel.h"
+#include "../../include/core/runtime.h"
+#include "../../include/operators/unary.h"
 
-#include "test.h"
+#include "../../include/test.h"
 
 namespace infini
 {

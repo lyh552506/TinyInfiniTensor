@@ -1,5 +1,5 @@
 #pragma once
-#include "utils/exception.h"
+#include "../utils/exception.h"
 #include <cassert>
 #include <functional>
 #include <iostream>

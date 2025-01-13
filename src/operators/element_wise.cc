@@ -1,5 +1,5 @@
-#include "operators/element_wise.h"
-#include "utils/operator_utils.h"
+#include "../../include/operators/element_wise.h"
+#include "../../include/utils/operator_utils.h"
 
 namespace infini
 {

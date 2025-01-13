@@ -1,4 +1,4 @@
-#include "operators/matmul.h"
+#include "../../include/operators/matmul.h"
 
 namespace infini
 {

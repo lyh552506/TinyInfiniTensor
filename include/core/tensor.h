@@ -1,8 +1,8 @@
 #pragma once
-#include "core/blob.h"
-#include "core/data_type.h"
-#include "core/object.h"
-#include "core/runtime.h"
+#include "blob.h"
+#include "data_type.h"
+#include "object.h"
+#include "runtime.h"
 #include <cmath>
 #include <cstring>
 #include <fstream>

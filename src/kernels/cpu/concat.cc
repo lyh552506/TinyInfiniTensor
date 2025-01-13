@@ -1,5 +1,5 @@
-#include "operators/concat.h"
-#include "core/kernel.h"
+#include "../../../include/operators/concat.h"
+#include "../../../include/core/kernel.h"
 
 namespace infini {
 

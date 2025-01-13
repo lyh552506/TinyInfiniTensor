@@ -1,4 +1,4 @@
-#include "operators/transpose.h"
+#include "../../include/operators/transpose.h"
 
 namespace infini
 {
@@ -28,12 +28,17 @@ namespace infini
         auto input_dim = A->getDims();
         auto output_dim = input_dim;
         int rank = A->getRank();
-
+		bool flag=false;
         // =================================== 作业 ===================================
         // TODO：修改 output_dim，返回正确的 transpose 后的 shape
         // REF: https://onnx.ai/onnx/operators/onnx__Transpose.html#transpose-21
         // =================================== 作业 ===================================
-
+		for(long unsigned int i=0;i<input_dim.size();i++){
+			flag=true;
+			output_dim[i]=input_dim[transposePermute[i]];
+		}
+		if(flag)
+		  return std::optional<vector<Shape>>({output_dim});
         return std::nullopt;
     }
 

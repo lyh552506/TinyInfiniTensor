@@ -1,7 +1,7 @@
 #pragma once
-#include "core/allocator.h"
-#include "core/operator.h"
-#include "core/tensor.h"
+#include "allocator.h"
+#include "operator.h"
+#include "tensor.h"
 #include <algorithm>
 #include <cstdint>
 

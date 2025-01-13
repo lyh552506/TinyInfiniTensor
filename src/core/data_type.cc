@@ -1,4 +1,4 @@
-#include "core/data_type.h"
+#include "../../include/core/data_type.h"
 
 namespace infini {
 // Move implementation here to avoid compile time error on some platform

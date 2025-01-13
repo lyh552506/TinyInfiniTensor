@@ -1,4 +1,4 @@
-#include "core/allocator.h"
+#include "../../include/core/allocator.h"
 #include <utility>
 
 namespace infini
@@ -28,12 +28,28 @@ namespace infini
         IT_ASSERT(this->ptr == nullptr);
         // pad the size to the multiple of alignment
         size = this->getAlignedSize(size);
-
         // =================================== 作业 ===================================
         // TODO: 设计一个算法来分配内存，返回起始地址偏移量
         // =================================== 作业 ===================================
-
-        return 0;
+		if(!AllocateFreeMap.empty()){
+			for(const auto [offset,blocksize]:AllocateFreeMap){
+				if(size<blocksize){
+					auto remain=blocksize-size;
+					AllocateFreeMap[offset+size]=remain;
+					AllocateFreeMap.erase(offset);
+					this->used+=size;
+					return offset+size;
+				}else if(size==blocksize){
+					this->used+=size;
+					AllocateFreeMap.erase(offset);
+					return offset;
+				}
+			}
+		}
+		auto off=this->peak;
+		this->used+=size;
+		this->peak+=size;
+        return off;
     }
 
     void Allocator::free(size_t addr, size_t size)
@@ -44,6 +60,13 @@ namespace infini
         // =================================== 作业 ===================================
         // TODO: 设计一个算法来回收内存
         // =================================== 作业 ===================================
+		if((addr+size)==this->peak){
+			this->peak-=size;
+			this->used-=size;
+		}else{
+		AllocateFreeMap[addr]=size;
+		this->used-=size;
+		}
     }
 
     void *Allocator::getPtr()

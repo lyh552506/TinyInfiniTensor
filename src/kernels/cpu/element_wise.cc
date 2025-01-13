@@ -1,6 +1,6 @@
-#include "operators/element_wise.h"
-#include "core/kernel.h"
-#include "utils/operator_utils.h"
+#include "../../../include/operators/element_wise.h"
+#include "../../../include/core/kernel.h"
+#include "../../../include/utils/operator_utils.h"
 
 namespace infini
 {

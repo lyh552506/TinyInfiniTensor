@@ -1,8 +1,8 @@
-#include "core/runtime.h"
-#include "core/blob.h"
-#include "core/kernel.h"
-#include "core/graph.h"
-#include "core/kernel.h"
+#include "../../include/core/runtime.h"
+#include "../../include/core/blob.h"
+#include "../../include/core/kernel.h"
+#include "../../include/core/graph.h"
+#include "../../include/core/kernel.h"
 #include <chrono>
 #include <cstring>
 #include <memory>

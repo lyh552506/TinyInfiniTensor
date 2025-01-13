@@ -1,5 +1,5 @@
 #pragma once
-#include "core/operator.h"
+#include "../core/operator.h"
 
 namespace infini
 {

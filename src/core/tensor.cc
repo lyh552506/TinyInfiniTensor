@@ -1,7 +1,7 @@
-#include "core/tensor.h"
-#include "core/blob.h"
-#include "core/operator.h"
-#include "core/runtime.h"
+#include "../../include/core/tensor.h"
+#include "../../include/core/blob.h"
+#include "../../include/core/operator.h"
+#include "../../include/core/runtime.h"
 #include <cstring>
 #include <numeric>
 

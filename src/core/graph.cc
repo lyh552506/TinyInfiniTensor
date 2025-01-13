@@ -1,7 +1,9 @@
-#include "core/graph.h"
+#include "../../include/core/graph.h"
 #include <algorithm>
+#include <memory>
 #include <numeric>
 #include <queue>
+#include <unordered_map>
 
 namespace infini
 {
@@ -152,8 +154,19 @@ namespace infini
         // TODO：利用 allocator 给计算图分配内存
         // HINT: 获取分配好的内存指针后，可以调用 tensor 的 setDataBlob 函数给 tensor 绑定内存
         // =================================== 作业 ===================================
-
+		Runtime runtime = NativeCpuRuntimeObj::getInstance();
+		Allocator allocator = Allocator(runtime);
+		std::unordered_map<std::shared_ptr<TensorObj>, int> TensorOffs;
+		for(auto op:tensors){
+			TensorOffs[op]= allocator.alloc(op->getBytes());
+		}
         allocator.info();
+		for(auto op:tensors){
+			auto size=TensorOffs[op];
+			auto MemPtr=(int*)allocator.getPtr()+size;
+			op->setDataBlob(std::make_shared<BlobObj>(runtime,MemPtr));
+			
+		}
     }
 
     Tensor GraphObj::addTensor(Shape dim, DataType dtype)

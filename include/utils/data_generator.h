@@ -1,5 +1,5 @@
 #pragma once
-#include "core/common.h"
+#include "../core/common.h"
 #include <random>
 
 namespace infini {

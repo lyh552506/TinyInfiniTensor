@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/op_type.h"
-#include "core/tensor.h"
+#include "op_type.h"
+#include "tensor.h"
 
 namespace infini
 {

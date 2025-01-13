@@ -1,6 +1,6 @@
 #pragma once
-#include "core/common.h"
-#include "core/ref.h"
+#include "common.h"
+#include "ref.h"
 
 namespace infini {
 
